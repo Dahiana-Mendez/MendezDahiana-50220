@@ -1,0 +1,23 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">Logout</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Confirmar Logout</h2>
+                    <p class="card-text text-center">¿Estás seguro de que deseas cerrar sesión?</p>
+                    <div class="text-center">
+                        <a href="{% url 'logout' %}" class="btn btn-primary">Confirmar Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

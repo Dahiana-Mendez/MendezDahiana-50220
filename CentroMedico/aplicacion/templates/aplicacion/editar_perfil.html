@@ -1,0 +1,30 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">Editar Perfil</h1>
+{% endblock titulo %}
+
+{% block boton %}
+
+{% endblock boton %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <br>
+                <br>
+                <button class="btn btn-primary" type="submit">Actualizar</button>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

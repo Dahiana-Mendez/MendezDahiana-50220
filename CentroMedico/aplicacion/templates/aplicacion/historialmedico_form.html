@@ -1,0 +1,25 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">Agregar Historial</h1>
+{% endblock titulo %}
+
+{% block boton %}
+
+{% endblock boton %}
+
+{% block contenido %}
+<div class="mx-auto" style="width: 50%;"> 
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <br>
+        <button class="btn btn-primary" type="submit"> Agregar </button>
+    </form>
+    <br>
+</div>
+{% endblock contenido %}
+

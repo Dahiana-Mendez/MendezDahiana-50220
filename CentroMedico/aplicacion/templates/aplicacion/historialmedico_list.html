@@ -1,0 +1,51 @@
+{%extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">HISTOAIL MÉDICO</h1>
+{% endblock titulo %}
+
+{% block boton %}
+<a class="btn btn-primary" href="#projects">VER DATOS</a>
+{% endblock boton %}
+
+{% block contenido %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Paciente</th>
+            <th>Historial</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+{% for h in historialmedico_list  %}
+        <tr>
+            <td>{{ h.id }}</td>
+            <td>{{ h.paciente }}</td>
+            <td>{{ h.historial }}</td>
+            <td>
+                <a
+                  href="{% url 'historialMedico_update' h.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .30rem; --bs-btn-padding-x: .7rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa-solid fa-marker" title=""></i>
+                </a>
+                <a
+                href="{% url 'historialMedico_delete' pk=h.id %}" class="btn btn-danger btn-sm">
+                <i class="fa-regular fa-trash-can"></i> 
+                </a>           
+            </td>
+            
+        </tr>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
+
+{% block boton1 %}
+<div class="d-flex justify-content-center align-items-center">
+<a class="btn btn-primary" href="{% url 'historialMedico_create' %}">AGREGAR HISTORIAL</a>
+</div>      
+{% endblock boton1 %}

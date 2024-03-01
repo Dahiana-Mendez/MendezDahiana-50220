@@ -1,0 +1,67 @@
+{%extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">DOCTORES</h1>
+{% endblock titulo %}
+
+{% block boton %}
+<a class="btn btn-primary" href="#projects">VER DATOS</a>
+{% endblock boton %}
+
+{% block buscador %}
+<form class="d-flex" role="search" action="{% url 'buscarDoctor' %}" method="get">
+    <input name="buscador" class="form-control me-2" type="search" placeholder="Buscador" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Buscar</button>
+</form>
+{% endblock buscador %}
+
+{% block contenido %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Especialidad</th>
+            <th>Telefono</th>
+            <th>Correo Electronico</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for d in doctor_list  %}
+        <tr>
+            <td>{{ d.id }}</td>
+            <td>{{ d.nombre }}</td>
+            <td>{{ d.apellido }}</td>
+            <td>{{ d.especialidad }}</td>
+            <td>{{ d.telefono }}</td>
+            <td>{{ d.correo_electronico }}</td>
+            <td>
+                <a
+                  href="{% url 'doctor_update' d.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .30rem; --bs-btn-padding-x: .7rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa-solid fa-marker" title=""></i>
+                </a>
+                <a href="{% url 'doctor_delete' d.id %}" class="btn btn-danger btn-sm">
+                    <i class="fa-regular fa-trash-can"></i> 
+                </a>
+              <a href="{% url 'proximo_paciente' d.id %}" class="btn btn-info btn-sm">
+                citas
+            </a>
+                              
+            </td>
+            
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
+
+{% block boton1 %}
+<div class="d-flex justify-content-center align-items-center">
+<a class="btn btn-primary" href="{% url 'doctor_create' %}">AGREGAR DOCTOR</a>
+</div> 
+<br>      
+{% endblock boton1 %}

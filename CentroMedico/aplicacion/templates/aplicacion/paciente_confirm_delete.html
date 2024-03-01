@@ -1,0 +1,22 @@
+{%extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">Eliminar Paciente</h1>
+{% endblock titulo %}
+
+{% block boton %}
+
+{% endblock boton %}
+
+
+{% block contenido %}
+<form action="" method="POST">
+    {% csrf_token %}   
+    <div class="text-center">     
+        <h3>¿Está seguro/a de que desea borrar el paciente? <p style="color:blue">{{ object }}</p> </h3>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="Confirmar">
+    </div>
+</form>
+{% endblock contenido %}

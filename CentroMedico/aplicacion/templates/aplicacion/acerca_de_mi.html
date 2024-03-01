@@ -1,0 +1,31 @@
+{% extends 'aplicacion/home.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">Acerca de Mi</h1>
+{% endblock titulo %}
+
+{% block boton %}
+
+{% endblock boton %}
+
+{% block contenido %}
+<div class="container mb-3">
+    <div class="row">
+        <div class="col">
+            <img src="{% static 'assets/imagen4.jpeg' %}" width="400px" alt="Mi imagen">
+        </div>
+        <div class="col comment" >
+            <h2>Hola, ¡Un gusto recibirte en mi página! </h2>
+            <p>Mi nombre es Dahiana, soy estudiante de la tecnicatura en programación en
+                la Universidad Guillermo Brown de Buenos Aires, Argentina.</p>
+
+            <p>Estudio todo lo posible sobre programación, tanto dentro como fuera de la universidad,
+                por lo que espero tener la oportunidad de adentrarme en el mundo del
+                desarrollo en el momento adecuado.</p>
+            <h3>¡Gracias por leerme!</h3>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

@@ -1,0 +1,25 @@
+{%extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">Registro</h1>
+{% endblock titulo %}
+
+{% block boton %}
+
+{% endblock boton %}
+
+
+{% block contenido %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <br>
+    <br>
+    <button class="btn btn-primary" type="submit"> Agregar </button>
+    <br>
+    <br>
+    <br>
+</form>
+{% endblock contenido %}

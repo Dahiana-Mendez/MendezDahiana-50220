@@ -1,0 +1,55 @@
+{%extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">TURNOS</h1>
+{% endblock titulo %}
+
+{% block boton %}
+<a class="btn btn-primary" href="#projects">VER DATOS</a>
+{% endblock boton %}
+
+{% block contenido %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Paciente</th>
+            <th>Doctor</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+{% for c in cita_list  %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.paciente }}</td>
+            <td>{{ c.doctor }}</td>
+            <td>{{ c.fecha }}</td>
+            <td>{{ c.hora }}</td>
+            <td>
+                <a
+                  href="{% url 'cita_update' c.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .30rem; --bs-btn-padding-x: .7rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa-solid fa-marker" title=""></i>
+                </a>
+                <a href="{% url 'cita_delete' c.id %}" class="btn btn-danger btn-sm">
+                  <i class="fa-regular fa-trash-can"></i> 
+              </a>
+                              
+            </td>
+            
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
+
+{% block boton1 %}
+<div class="d-flex justify-content-center align-items-center">
+  <a class="btn btn-primary" href="{% url 'cita_create' %}">AGREGAR TURNO</a> 
+</div> 
+<br>
+{% endblock boton1 %}

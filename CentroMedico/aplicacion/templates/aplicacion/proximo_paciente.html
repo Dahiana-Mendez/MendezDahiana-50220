@@ -1,0 +1,27 @@
+{%extends 'aplicacion/home.html' %}
+
+{% block titulo %}
+<h1 class="mx-auto my-0 text-uppercase">TURNOS</h1>
+{% endblock titulo %}
+
+{% block boton %}
+<a class="btn btn-primary" href="#projects">VER DATOS</a>
+{% endblock boton %}
+
+{% block contenido %}
+<h1>Próximo Paciente para el Dr. {{ doctor.nombre }}</h1>
+{% if paciente %}
+    <p>Nombre del Paciente: {{ paciente.nombre }}</p>
+    <p>Apellido del Paciente: {{ paciente.apellido }}</p>
+{% else %}
+    <p>No hay citas programadas para este doctor.</p>
+{% endif %}
+</table>
+{% endblock contenido %}
+<br>
+{% block boton1 %}
+<div class="d-flex justify-content-center align-items-center">
+  <a class="btn btn-primary" href="{% url 'doctores' %}">VOLVER</a> 
+</div> 
+<br>
+{% endblock boton1 %}
